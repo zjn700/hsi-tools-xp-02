@@ -7,7 +7,7 @@ var jwt = require("jsonwebtoken");
 var Datastore = require('nedb'),
     dbNotLoaded = false,
     dbErr = null,
-    dbn = new Datastore({ filename: path.join(__dirname, '..', '/data/hsi-projects'), autoload: true, onload : function(err) {
+    dbn = new Datastore({ filename: path.join(__dirname, '..', '/data/hsi-answers'), autoload: true, onload : function(err) {
             if (err) {
                 console.log(err);
                 dbNotLoaded = true;
@@ -17,6 +17,7 @@ var Datastore = require('nedb'),
     });
 
 router.get('/', function (req, res, next) {
+    console.log('in get answers')
     console.log(dbNotLoaded)
     if (dbNotLoaded) {
         console.log('DB Error')
@@ -25,23 +26,56 @@ router.get('/', function (req, res, next) {
             error: dbErr
         }); 
     }
-    dbn.find({}).sort({ title: -1 }).exec(function (err, projects) {
+    dbn.find({$and: [{projectId: req.query.projectId}, {domainId: req.query.domainId}]}).sort({ sequence: 1 }).exec(function (err, answers) {
         if (err) {
             console.log(err)
-            return res.status(500).json({
+            return res.status(501).json({
                 title: "An error occured",
                 error: err
             });                
         }
-        if (projects.length==0) {
-            return res.status(500).json({
-                title: "No projects found",
-                obj: projects
+        if (answers.length==0) {
+            return res.status(201).json({
+                title: "No answers found",
+                obj: answers
             });           
         }
         res.status(201).json({
             message: "Success",
-            obj: projects
+            obj: answers
+        });
+    });        
+    
+});
+
+// get one answer
+router.get('/:sequence', function (req, res, next) {
+    console.log('in get one answer')
+    console.log(dbNotLoaded)
+    if (dbNotLoaded) {
+        console.log('DB Error')
+        return res.status(500).json({
+            title: "A database error occured",
+            error: dbErr
+        }); 
+    }
+    dbn.find({$and: [{projectId: req.query.projectId}, {domainId: req.query.domainId}, {sequence: req.params.sequence}]}).sort({ sequence: 1 }).exec(function (err, answer) {
+        if (err) {
+            console.log(err)
+            return res.status(501).json({
+                title: "An error occured",
+                error: err
+            });                
+        }
+        if (answer.length==0) {
+            return res.status(201).json({
+                title: "No answer found",
+                obj: answer
+            });           
+        }
+        res.status(201).json({
+            message: "Success",
+            obj: answer
         });
     });        
     
@@ -212,7 +246,6 @@ router.patch('/answer:id', function (req, res, next) {
   
   var index = '';
   dbn.findOne({ _id: req.params.id }, function (err, project) {
- 
       var index = null;
        for (var i = 0; i < project.answers.length; i++) {
           if (project.answers[i].domainId == req.body.domainId 
@@ -238,9 +271,9 @@ router.patch('/answer:id', function (req, res, next) {
                   });              
               });
               break;
-           }  // update
-       }   // for
-  }); // findOne
+           }
+       }
+  })
   
 });
 

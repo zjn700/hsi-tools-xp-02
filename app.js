@@ -9,6 +9,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var qnns = require('./routes/qnns');
 var domains = require('./routes/domains');
+var answers = require('./routes/answers');
 var projects = require('./routes/projects');
 
 var app = express();
@@ -31,7 +32,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/questionnaires', qnns);
 app.use('/domain', domains);
-
+app.use('/answers', answers);
 app.use('/projects', projects);
 
 // you shall not pass
