@@ -105,22 +105,27 @@ router.post('/', function (req, res, next) {
         }); 
     }
     
-    var titleTest = req.body.title;
-    if ( (titleTest === null) || (titleTest.replace(/\s/g,'') == "")) { 
-        return res.status(500).json({
-                title: "You must enter a title for the project.",
-            });   
-    }
+    // var titleTest = req.body.title;
+    // if ( (titleTest === null) || (titleTest.replace(/\s/g,'') == "")) { 
+    //     return res.status(500).json({
+    //             title: "You must enter a title for the project.",
+    //         });   
+    // }
     var decoded = jwt.decode(req.query.token)
     console.log(decoded.user._id)
 
-    var project = {
-        title: req.body.title,
-        description: req.body.description,
+    var answer = {
+        projectId: req.body.projectId,
+        domainId: req.body.domainId, 
+        sequence: req.body.sequence, 
+        value: req.body.value,
+        riskValue: req.body.riskValue,
+        rationale: req.body.rationale,
         dateCreated: req.body.dateCreated,
-        users: req.body.users
+        dateModified: req.body.dateModified
     }
-    dbn.insert(project, function (err, project) {  
+    
+    dbn.insert(answer, function (err, answer) {  
         if (err) {
             console.log(err)
             return res.status(500).json({
@@ -130,7 +135,7 @@ router.post('/', function (req, res, next) {
         }
         res.status(201).json({
             message: "Project was created",
-            obj: project
+            obj: answer
         });                
 
     });  
@@ -145,10 +150,12 @@ router.patch('/:id', function (req, res, next) {
           error: dbErr
       }); 
   }
-     
+     console.log(req.body)
   dbn.update({ _id: req.body.id }, { $set: { 
-          title: req.body.title, 
-          description: req.body.description 
+          value: req.body.value, 
+          riskValue: req.body.riskValue,
+          rationale: req.body.rationale,
+          dateModified: req.body.dateModified          
         }}, {}, function (err, numReplaced) {
 
   //dbn.update({ _id: req.body.id }, project, {}, function (err, numReplaced) {
