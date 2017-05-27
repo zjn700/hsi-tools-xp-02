@@ -25,7 +25,8 @@ router.get('/', function (req, res, next) {
             error: dbErr
         }); 
     }
-    dbn.find({}).sort({ title: -1 }).exec(function (err, projects) {
+    //dbn.find({}).sort({ title: -1 }).exec(function (err, projects) {
+    dbn.find({}).sort({ dateCreated: -1 }).exec(function (err, projects) {
         if (err) {
             console.log(err)
             return res.status(500).json({

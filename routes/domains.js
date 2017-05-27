@@ -20,6 +20,11 @@ router.get('/xxx', function(req, res, next) {
   res.send('here in domains get');
 });
 
+router.get('/dummy', function(req, res, next) {
+    return res.status(200).json({
+            title: "Use existing domains",
+        }); 
+});
 
 router.get('/', function (req, res, next) {
     console.log(dbNotLoaded)
