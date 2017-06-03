@@ -80,7 +80,7 @@ router.post('/signin', function (req, res, next) {
                 error: {message: "Invalid login credentials"}
             });    
         }
-        var token = jwt.sign({user: user}, 'zz-hsi-tool', {expiresIn: 15});  // 43200 = 12 hrs;7200 = 2 hrs
+        var token = jwt.sign({user: user}, 'zz-hsi-tool', {expiresIn: 36000});  // 36000 = 10 hrs, 43200 = 12 hrs;7200 = 2 hrs
         res.status(200).json({
             message: 'Successful log in',
             token: token,

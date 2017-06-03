@@ -115,7 +115,8 @@ router.patch('/:id', function (req, res, next) {
      
   dbn.update({ _id: req.body.id }, { $set: { 
           title: req.body.title, 
-          description: req.body.description 
+          description: req.body.description,
+          state: req.body.state
         }}, {}, function (err, numReplaced) {
 
   //dbn.update({ _id: req.body.id }, project, {}, function (err, numReplaced) {
