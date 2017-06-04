@@ -26,7 +26,8 @@ router.get('/', function (req, res, next) {
         }); 
     }
     //dbn.find({}).sort({ title: -1 }).exec(function (err, projects) {
-    dbn.find({}).sort({ dateCreated: -1 }).exec(function (err, projects) {
+    dbn.find({}).sort({ 'state.dateModified': -1, dateCreated: -1 }).exec(function (err, projects) {
+    //dbn.find({}).sort({ dateCreated: -1 }).exec(function (err, projects) {
         if (err) {
             console.log(err)
             return res.status(500).json({
@@ -48,6 +49,11 @@ router.get('/', function (req, res, next) {
     
 });
 
+router.get('/dummy', function(req, res, next) {
+    return res.status(200).json({
+            title: "Use existing projects",
+        }); 
+});
 
 router.use('/', function (req, res, next) {
     jwt.verify(req.query.token, 'zz-hsi-tool', function(err, decoded){
@@ -85,7 +91,8 @@ router.post('/', function (req, res, next) {
         title: req.body.title,
         description: req.body.description,
         dateCreated: req.body.dateCreated,
-        users: req.body.users
+        users: req.body.users,
+        state: req.body.state
     }
     dbn.insert(project, function (err, project) {  
         if (err) {
