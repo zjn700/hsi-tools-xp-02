@@ -55,6 +55,41 @@ router.get('/dummy', function(req, res, next) {
         }); 
 });
 
+
+router.get('/:id', function (req, res, next) {
+    console.log(dbNotLoaded)
+    if (dbNotLoaded) {
+        console.log('DB Error')
+        return res.status(500).json({
+            title: "A database error occured",
+            error: dbErr
+        }); 
+    }
+    dbn.findOne({ _id: req.params.id }, function (err, project) {
+    //dbn.find({category: req.params.id} ,function (err, qnns) {
+        if (err) {
+            console.log(err)
+            return res.status(500).json({
+                title: "An error occured",
+                error: err
+            });                
+        }
+        if (project.length==0) {
+            return res.status(500).json({
+                title: "No project found",
+                obj: project
+            });           
+        }
+        res.status(201).json({
+            message: "Success",
+            obj: project
+        });
+    });        
+    
+});
+
+
+
 router.use('/', function (req, res, next) {
     jwt.verify(req.query.token, 'zz-hsi-tool', function(err, decoded){
         if (err) {
