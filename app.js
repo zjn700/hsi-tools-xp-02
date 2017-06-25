@@ -11,6 +11,7 @@ var qnns = require('./routes/qnns');
 var domains = require('./routes/domains');
 var answers = require('./routes/answers');
 var projects = require('./routes/projects');
+var integrations = require('./routes/integrations');
 
 var app = express();
 
@@ -34,6 +35,7 @@ app.use('/questionnaires', qnns);
 app.use('/domain', domains);
 app.use('/answers', answers);
 app.use('/projects', projects);
+app.use('/integrations', integrations);
 
 // you shall not pass
 app.get('*', (req, res) => {
