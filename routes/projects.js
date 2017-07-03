@@ -127,7 +127,8 @@ router.post('/', function (req, res, next) {
         description: req.body.description,
         dateCreated: req.body.dateCreated,
         users: req.body.users,
-        state: req.body.state
+        state: req.body.state,
+        states: req.body.states
     }
     dbn.insert(project, function (err, project) {  
         if (err) {
@@ -158,7 +159,8 @@ router.patch('/:id', function (req, res, next) {
   dbn.update({ _id: req.body.id }, { $set: { 
           title: req.body.title, 
           description: req.body.description,
-          state: req.body.state
+          state: req.body.state,
+          states: req.body.states
         }}, {}, function (err, numReplaced) {
 
   //dbn.update({ _id: req.body.id }, project, {}, function (err, numReplaced) {
