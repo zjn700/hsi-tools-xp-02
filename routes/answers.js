@@ -120,6 +120,7 @@ router.post('/', function (req, res, next) {
         sequence: req.body.sequence, 
         value: req.body.value,
         riskValue: req.body.riskValue,
+        riskDetails: req.body.riskDetails,
         rationale: req.body.rationale,
         dateCreated: req.body.dateCreated,
         dateModified: req.body.dateModified
@@ -154,6 +155,7 @@ router.patch('/:id', function (req, res, next) {
   dbn.update({ _id: req.body.id }, { $set: { 
           value: req.body.value, 
           riskValue: req.body.riskValue,
+          riskDetails: req.body.riskDetails,
           rationale: req.body.rationale,
           dateModified: req.body.dateModified          
         }}, {}, function (err, numReplaced) {
