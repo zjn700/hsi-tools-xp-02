@@ -17,6 +17,36 @@ var Datastore = require('nedb'),
         } 
     });
 
+router.get('/:id', function(req, res, next) {
+    if (dbNotLoaded) {
+        console.log('Database error -- cannot post')
+        return res.status(500).json({
+            title: "A database error occured -- your post was not made",
+            error: dbErr
+        }); 
+    }
+    dbn.findOne({ _id: req.params.id }, function (err, user) {
+        if (err) {
+            console.log(err)
+            return res.status(500).json({
+                title: "An error occured",
+                error: err
+            });                
+        }
+        if (user.length==0) {
+            return res.status(500).json({
+                title: "No user found",
+                obj: user
+            });           
+        }
+        res.status(201).json({
+            message: "Success",
+            obj: user
+        });
+    });
+});
+
+
 router.post('/', function (req, res, next) {
     if (dbNotLoaded) {
         console.log('Database error -- cannot post')
@@ -25,7 +55,6 @@ router.post('/', function (req, res, next) {
             error: dbErr
         }); 
     }
-    
     dbn.findOne({ email: req.body.email }, function (err, doc) {
       if (doc) {                    // If no document is found, doc is null
         return res.status(500).json({
