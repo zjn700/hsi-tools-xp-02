@@ -57,8 +57,9 @@ router.post('/', function (req, res, next) {
     }
     dbn.findOne({ email: req.body.email }, function (err, doc) {
       if (doc) {                    // If no document is found, doc is null
-        return res.status(500).json({
+        return res.status(203).json({
                 title: "Email already exists",
+                error: true,
                 obj: req.body.email
             });
         } else {
