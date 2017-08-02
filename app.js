@@ -13,8 +13,8 @@ var answers = require('./routes/answers');
 var projects = require('./routes/projects');
 var integrations = require('./routes/integrations');
 
-var adminqnns = require('./routes/admin-qnns');
-var admindomains = require('./routes/admin-domains');
+// var adminqnns = require('./routes/admin-qnns');
+// var admindomains = require('./routes/admin-domains');
 
 var app = express();
 
@@ -40,8 +40,8 @@ app.use('/answers', answers);
 app.use('/projects', projects);
 app.use('/integrations', integrations);
 
-app.use('/admindomain', admindomains);
-app.use('/adminqnns', adminqnns);
+// app.use('/admindomain', admindomains);
+// app.use('/adminqnns', adminqnns);
 
 // you shall not pass
 app.get('*', (req, res) => {
