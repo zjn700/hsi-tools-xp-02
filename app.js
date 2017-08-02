@@ -14,7 +14,7 @@ var projects = require('./routes/projects');
 var integrations = require('./routes/integrations');
 
 var adminqnns = require('./routes/admin-qnns');
-var admindomains = require('./routes/admin-domains');
+var admindomains = require('./routes/admindomains');
 
 var app = express();
 
@@ -40,7 +40,7 @@ app.use('/answers', answers);
 app.use('/projects', projects);
 app.use('/integrations', integrations);
 
-app.use('/admindomain', admindomains);
+app.use('/admindomains', admindomains);
 app.use('/adminqnns', adminqnns);
 
 // you shall not pass
