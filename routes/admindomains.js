@@ -110,7 +110,7 @@ router.use('/', function (req, res, next) {
 });
 
 
-router.patch('/', function (req, res, next) {
+router.post('/', function (req, res, next) {
     console.log('req.body')
     console.log(req)
     console.log(req.body)
@@ -152,4 +152,46 @@ router.patch('/', function (req, res, next) {
 
     });  
 });
+
+router.patch('/', function (req, res, next) {
+    console.log('req.body')
+    console.log(req)
+    console.log(req.body)
+    if (dbNotLoaded) {
+        console.log('DB Error -- cannot post')
+        return res.status(500).json({
+            title: "A database error occured -- your post was not made",
+            error: dbErr
+        }); 
+    }
+    
+    var decoded = jwt.decode(req.query.token)
+    console.log(decoded.user._id)
+    
+    console.log('req.body.questions')
+    console.log(req.body.questions)
+    
+    dbn.update({$and: [{ qnn: req.body.qnn }, {sequence: req.body.sequence}]}, { $set: { 
+          title: req.body.title,
+          sequence: req.body.sequence,
+          questions: req.body.questions
+        }}, {}, function (err, numReplaced) {
+    
+            //dbn.update({ _id: req.body.id }, project, {}, function (err, numReplaced) {
+            console.log('numReplaced')
+            console.log(numReplaced)
+            if (err) {
+              console.log(err)
+              return res.status(400).json({
+                  title: "An error occured while updating",
+                  error: err
+              });    
+            }    
+            res.status(201).json({
+              message: "Domain was updated",
+              numReplaced: numReplaced
+            });              
+        });  
+});
+
 module.exports = router;
