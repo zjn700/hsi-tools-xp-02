@@ -6,7 +6,7 @@ var jwt = require("jsonwebtoken");
 var Datastore = require('nedb'),
     dbNotLoaded = false,
     dbErr = null,
-    dbn = new Datastore({ filename: path.join(__dirname, '..', '/data-admin/hsi-domains-test'), autoload: true, onload : function(err) {
+    dbn = new Datastore({ filename: path.join(__dirname, '..', '/data-admin/hsi-domains-test3'), autoload: true, onload : function(err) {
             if (err) {
                 console.log(err);
                 dbNotLoaded = true;
