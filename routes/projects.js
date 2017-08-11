@@ -36,7 +36,7 @@ router.get('/', function (req, res, next) {
             });                
         }
         if (projects.length==0) {
-            return res.status(500).json({
+            return res.status(204).json({
                 title: "No projects found",
                 obj: projects
             });           
