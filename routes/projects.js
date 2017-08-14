@@ -148,6 +148,7 @@ router.post('/', function (req, res, next) {
 
 
 router.patch('/:id', function (req, res, next) {
+  console.log('in patch')
   if (dbNotLoaded) {
       console.log('DB Error -- cannot patch')
       return res.status(500).json({
@@ -181,6 +182,38 @@ router.patch('/:id', function (req, res, next) {
   
 });
 
+router.patch('/archive/:id', function (req, res, next) {
+  console.log('req.body')
+  console.log(req.body)
+  if (dbNotLoaded) {
+      console.log('DB Error -- cannot patch')
+      return res.status(500).json({
+          title: "A database error occured -- your post was not made",
+          error: dbErr
+      }); 
+  }
+     
+  dbn.update({ _id: req.body.id }, { $set: { 
+          archived: req.body.archived
+        }}, {}, function (err, numReplaced) {
+
+  //dbn.update({ _id: req.body.id }, project, {}, function (err, numReplaced) {
+      console.log('numReplaced')
+      console.log(numReplaced)
+      if (err) {
+          console.log(err)
+          return res.status(500).json({
+              title: "An error occured while archiving",
+              error: err
+          });    
+      }    
+      res.status(201).json({
+          message: "Project was archived",
+          obj: numReplaced
+      });              
+  });
+  
+});
 
 router.delete('/:id', function (req, res, next) {
     if (dbNotLoaded) {
@@ -289,6 +322,7 @@ router.patch('/answer:id', function (req, res, next) {
   }); // findOne
   
 });
+
 
 //   console.log(index);
 //   return;
