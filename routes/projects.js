@@ -128,7 +128,8 @@ router.post('/', function (req, res, next) {
         dateCreated: req.body.dateCreated,
         users: req.body.users,
         state: req.body.state,
-        states: req.body.states
+        states: req.body.states,
+        archived: false
     }
     dbn.insert(project, function (err, project) {  
         if (err) {
