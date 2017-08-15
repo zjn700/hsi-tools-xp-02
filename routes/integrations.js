@@ -118,6 +118,7 @@ router.post('/', function (req, res, next) {
         domainList: req.body.domainList,
         title: req.body.title,
         dateModified: req.body.dateModified,
+        archived: false,
         risksIssuesConcerns: req.body.risksIssuesConcerns,
         mitigationStrategy: req.body.mitigationStrategy
     }
@@ -170,6 +171,38 @@ router.patch('/:id', function (req, res, next) {
       }    
       res.status(201).json({
           message: "Evaluation was updated",
+          obj: numReplaced
+      });              
+  });
+  
+});
+
+router.patch('/archive/:id', function (req, res, next) {
+  console.log('req.body')
+  console.log(req.body)
+  if (dbNotLoaded) {
+      console.log('DB Error -- cannot patch')
+      return res.status(500).json({
+          title: "A database error occured -- your change was not made",
+          error: dbErr
+      }); 
+  }
+     
+  dbn.update({ _id: req.body.id }, { $set: { 
+          archived: req.body.archived
+        }}, {}, function (err, numReplaced) {
+
+      console.log('numReplaced')
+      console.log(numReplaced)
+      if (err) {
+          console.log(err)
+          return res.status(500).json({
+              title: "An error occured while archiving",
+              error: err
+          });    
+      }    
+      res.status(201).json({
+          message: "Tradeoff evaluation was archived",
           obj: numReplaced
       });              
   });
