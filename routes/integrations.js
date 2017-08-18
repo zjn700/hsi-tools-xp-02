@@ -35,7 +35,7 @@ router.get('/', function (req, res, next) {
             });                
         }
         if (evaluations.length==0) {
-            return res.status(203).json({
+            return res.status(204).json({
                 title: "No evaluations found",
                 obj: evaluations
             });           

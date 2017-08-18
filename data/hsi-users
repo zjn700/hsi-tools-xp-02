@@ -30,3 +30,4 @@
 {"firstName":"g","lastName":"g","password":"$2a$10$7Z7b7tLNUbc4VWXJocNi0uTF6yRBogNmu2nJ.HhIBgtCKi9G87jra","email":"g@g.com","_id":"wLS84Tlpa41klH1C"}
 {"firstName":"tim","lastName":"bob","password":"$2a$10$LNpYISxcFdNc4RIPavJ0guQOQVPFhkxzoT.QoBA5B5t6BN3.ty8NS","email":"tim.bob@bah.com","_id":"xZoVRRkxG16b3gqY"}
 {"firstName":"Jane","lastName":"Doe","password":"$2a$10$Vh3u5iaa8.P5lMgWgQb4tOSFnhYP8WfCZsi.Z2/h.BsoucXUPzwHK","email":"jane.doe@gmail.com","_id":"yBc4nR67kJh3FuKx"}
+{"firstName":"a","lastName":"a0a","password":"$2a$10$UHXB0lxBRAPRHCCOvBANW.roxS/WoXQOvvVbEcv2pVsZcTI0PBg2u","email":"a@a.com","_id":"gngsCAhULG2pLCAo","office":"HP","phone":"555-555-5555"}
