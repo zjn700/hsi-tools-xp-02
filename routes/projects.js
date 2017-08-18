@@ -195,7 +195,8 @@ router.patch('/archive/:id', function (req, res, next) {
   }
      
   dbn.update({ _id: req.body.id }, { $set: { 
-          archived: req.body.archived
+          archived: req.body.archived,
+          state: req.body.state
         }}, {}, function (err, numReplaced) {
 
   //dbn.update({ _id: req.body.id }, project, {}, function (err, numReplaced) {
