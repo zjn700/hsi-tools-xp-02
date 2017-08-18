@@ -25,6 +25,7 @@ router.get('/', function (req, res, next) {
             error: dbErr
         }); 
     }
+    console.log(req.query)
     dbn.find({$and: [{projectId: req.query.projectId}, {qnnId: req.query.qnnId}]}).sort({ dateModified: -1 }).exec(function (err, evaluations) {
 
         if (err) {
@@ -35,17 +36,26 @@ router.get('/', function (req, res, next) {
             });                
         }
         if (evaluations.length==0) {
-            return res.status(204).json({
+            var t_res = {
                 title: "No evaluations found",
-                obj: evaluations
-            });           
+                obj: evaluations  
+            }
+            console.log('t_res')
+            console.log(t_res)
+            console.log(evaluations)
+            return res.status(204).json(t_res);
+
+            // return res.status(204).json({
+            //     title: "No evaluations found",
+            //     obj: evaluations
+            // });           
         }
         res.status(201).json({
             message: "Success",
             obj: evaluations
         });
     });        
-    
+
 });
 
 router.get('/dummy', function(req, res, next) {

@@ -16,7 +16,7 @@
 {"firstName":"Thomas","lastName":"McMasters","password":"$2a$10$/5IRhWwamLy/dKxzD5PZjeZredwikMbWLPb0UApNctPM3VVNUoxwm","email":"thomas.mcmasters.2.ctr@us.af.mil","_id":"WYFqaloTH7rr20xe"}
 {"firstName":"John","lastName":"Doe","password":"$2a$10$2bgopKZdYu6Twu2Gh.zcx.77n//puck1OmRv3.Sfr5Qqjncb.L8PC","email":"john.doe@mail.com","_id":"XJcdR8g3uBMqO2zI"}
 {"firstName":"a","lastName":"a","password":"$2a$10$rIPcruhnvChA.WbSf98yFOwRxcqzC1Io1B9RPBqPj.7jyVCfsNZ0i","email":"a@com","_id":"dwKQ3YAXoBQRQcdp"}
-{"firstName":"a","lastName":"a0a","password":"$2a$10$UHXB0lxBRAPRHCCOvBANW.roxS/WoXQOvvVbEcv2pVsZcTI0PBg2u","email":"a@a.com","_id":"gngsCAhULG2pLCAo"}
+{"firstName":"a","lastName":"a0a","password":"$2a$10$UHXB0lxBRAPRHCCOvBANW.roxS/WoXQOvvVbEcv2pVsZcTI0PBg2u","email":"a@a.com","_id":"gngsCAhULG2pLCAo","office":"HP","phone":"555-555-5555"}
 {"firstName":"test","lastName":"test","password":"$2a$10$/Ic56ZbX0nsac9yrN2Fx0O.lIM2c8HB13seJoXPpuRUkmVuQTKJGu","email":"test@test.com","_id":"hKNcmAFqtl4dVVSJ"}
 {"firstName":"Jim","lastName":"Bob","password":"$2a$10$O4OKI/CW6LPHFEHkbrgAje59bdRWNCB6meeGWiCkUQa1t1JlME5Yi","email":"jim.bob.1@mail.com","_id":"jEVbb6X9YXBLI75X"}
 {"firstName":"Vivian","lastName":"Vance","password":"$2a$10$knIyxnsMvQrTl78BntrNBefgKMrvNQR85Du7vG0kqb.fpn9vxqqO2","email":"v@v.com","_id":"kb7TuQDmhhGv2dKZ","office":"VOV/VCOM","phone":"937-222-2222"}
@@ -30,4 +30,3 @@
 {"firstName":"g","lastName":"g","password":"$2a$10$7Z7b7tLNUbc4VWXJocNi0uTF6yRBogNmu2nJ.HhIBgtCKi9G87jra","email":"g@g.com","_id":"wLS84Tlpa41klH1C"}
 {"firstName":"tim","lastName":"bob","password":"$2a$10$LNpYISxcFdNc4RIPavJ0guQOQVPFhkxzoT.QoBA5B5t6BN3.ty8NS","email":"tim.bob@bah.com","_id":"xZoVRRkxG16b3gqY"}
 {"firstName":"Jane","lastName":"Doe","password":"$2a$10$Vh3u5iaa8.P5lMgWgQb4tOSFnhYP8WfCZsi.Z2/h.BsoucXUPzwHK","email":"jane.doe@gmail.com","_id":"yBc4nR67kJh3FuKx"}
-{"firstName":"a","lastName":"a0a","password":"$2a$10$UHXB0lxBRAPRHCCOvBANW.roxS/WoXQOvvVbEcv2pVsZcTI0PBg2u","email":"a@a.com","_id":"gngsCAhULG2pLCAo","office":"HP","phone":"555-555-5555"}
