@@ -2,7 +2,7 @@
 {"firstName":"Zachary","lastName":"Zimmerlin","password":"$2a$10$t7t7GrZSSbZiEeQTW0bXhOsT4VUcJc8tYPgkocE9gVXW5acpAHkjG","email":"zachary.zimmerlin@me.com","_id":"1kY5qkR5W0zAL1id"}
 {"firstName":"Nolan","lastName":"Noles","password":"$2a$10$ZlkjqqPK2BTPrSufr5Lv5uft//jzWXt5ulVbM4HglsO0zTsAQZnXy","email":"noles@mail.com","_id":"1vPGkgX8SMJD1xLf"}
 {"firstName":"Jane","lastName":"Doe","password":"$2a$10$SMFDm6zyIPzvRQyWJzGyGuMOmjWnXZT1C.HfeN5gA3s.8sxsKNlOe","email":"janedoe@gmail.com","_id":"4SVh5JuDdzg4UKCh"}
-{"firstName":"d","lastName":"d0d","password":"$2a$10$CYNCUN3nrtAE4TxyEoxwuuQrLpsnd1kXrpHdI6vAcRCrjuuVVME6i","email":"d@d.com","_id":"7dkMcyQDcKaJcx02"}
+{"firstName":"d","lastName":"d0d","password":"$2a$10$CYNCUN3nrtAE4TxyEoxwuuQrLpsnd1kXrpHdI6vAcRCrjuuVVME6i","email":"d@d.com","_id":"7dkMcyQDcKaJcx02","office":"HPX","phone":"(555)-555-5555, DSN 5-5555"}
 {"firstName":"Zac","lastName":"Zim","password":"$2a$10$H0yMKakDAyXHA9wAz2XsHu5g27XjrunJhkl7qbySTmLql7S6.GWfa","email":"zac.zim@bah.com","_id":"9VOJbxvy6qQu4UO2"}
 {"firstName":"Zachary","lastName":"Zimmerlin","password":"$2a$10$rsGdmjbzr9AGzcs0WJntsOiUKSga6suKxWY7ZW38g22pelQqEwFge","email":"zachary.zimmerlin@bah.com","_id":"DDjaWJvzB209ABr1"}
 {"firstName":"c","lastName":"c0c","password":"$2a$10$IziChOUv89pCyk75Ka4wMeWZwBhIG6iEKVDCHebhPqSaz7Q9GDZGe","email":"c@c.com","_id":"FMIas8zNYUihIWIV"}
@@ -30,3 +30,4 @@
 {"firstName":"g","lastName":"g","password":"$2a$10$7Z7b7tLNUbc4VWXJocNi0uTF6yRBogNmu2nJ.HhIBgtCKi9G87jra","email":"g@g.com","_id":"wLS84Tlpa41klH1C"}
 {"firstName":"tim","lastName":"bob","password":"$2a$10$LNpYISxcFdNc4RIPavJ0guQOQVPFhkxzoT.QoBA5B5t6BN3.ty8NS","email":"tim.bob@bah.com","_id":"xZoVRRkxG16b3gqY"}
 {"firstName":"Jane","lastName":"Doe","password":"$2a$10$Vh3u5iaa8.P5lMgWgQb4tOSFnhYP8WfCZsi.Z2/h.BsoucXUPzwHK","email":"jane.doe@gmail.com","_id":"yBc4nR67kJh3FuKx"}
+{"firstName":"David","lastName":"Davis","password":"$2a$10$CYNCUN3nrtAE4TxyEoxwuuQrLpsnd1kXrpHdI6vAcRCrjuuVVME6i","email":"d@d.com","_id":"7dkMcyQDcKaJcx02","office":"HPX","phone":"(555)-555-5555, DSN 5-5555"}
