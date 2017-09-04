@@ -5,4 +5,4 @@
 {"title":"Concept Development","abbreviation":"CD","description":"The Concept Development questionnaire is used to....","category":"1","sequence":"1","_id":"jv8ba0uVxzaTNFmq"}
 {"title":"Production & Deployment","abbreviation":"PD","description":"The PD questionnaire is used to...","category":"2","sequence":"4","_id":"pE5HOZWNXogPeOvj"}
 {"title":"Technology Maturation & Risk Reduction","abbreviation":"TMRR","description":"The TMRR questionnaire is used to...","category":"2","sequence":"2","_id":"v9ackZKK5vQIewW4"}
-{"title":"Engineering & Manufacturing Development Integrated System Design","abbreviation":"EMD","description":"The EMD questionnaire is used to...","category":"2","sequence":"3","_id":"wQ6uG76YnUnjVeSW"}
+{"title":"Engineering & Manufacturing Development","abbreviation":"EMD","description":"The EMD questionnaire is used to...","category":"2","sequence":"3","_id":"wQ6uG76YnUnjVeSW"}
